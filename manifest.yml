@@ -1,0 +1,17 @@
+modules:
+  jira:projectPage:
+    - key: hello-world-project-page
+      resource: main
+      resolver:
+        function: resolver
+      title: Release Time Tracker [CustomUI]
+  function:
+    - key: resolver
+      handler: index.handler
+resources:
+  - key: main
+    path: static/hello-world/build
+app:
+  runtime:
+    name: nodejs20.x
+  id: ari:cloud:ecosystem::app/9084dcb4-1a13-4544-9c41-98b354a2915c
