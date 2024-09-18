@@ -1,5 +1,5 @@
 import { create } from "zustand";
-import { Issue } from "../types/issue";
+import { Issue } from "@typings/issue";
 
 interface IssueState {
   selectedIssue: Issue | null;

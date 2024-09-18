@@ -1,7 +1,7 @@
-import { FunctionKey } from "../static/app/src/lib/functions";
-import { SafeResolver } from "../static/app/src/lib/safe-resolver";
-import { IssueResponse } from "../static/app/src/types/issue";
-import { Version } from "../static/app/src/types/version";
+import { FunctionKey } from "./lib/functions";
+import { SafeResolver } from "./lib/safe-resolver";
+import { IssueResponse } from "./types/issue";
+import { Version } from "./types/version";
 import api, { route } from "@forge/api";
 import queryString from "query-string";
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useQuery } from "@tanstack/react-query";
-import { safeInvoke } from "./lib/safe-invoke";
-import { FunctionKey } from "./lib/functions";
+import { safeInvoke } from "@lib/safe-invoke";
+import { FunctionKey } from "@lib/functions";
 import { ErrorSectionMessage } from "./components/error-section-message";
 import { Inline, Stack } from "@atlaskit/primitives";
 import Spinner from "@atlaskit/spinner";

@@ -3,8 +3,8 @@ import { Box, Inline, Stack, xcss } from "@atlaskit/primitives";
 import Heading from "@atlaskit/heading";
 import Button from "@atlaskit/button/new";
 import ChevronRightIcon from "@atlaskit/icon/glyph/chevron-right";
-import { Version } from "../types/version";
-import { useReleaseStore } from "../lib/release-store";
+import { Version } from "@typings/version";
+import { useReleaseStore } from "../store/release-store";
 
 export function ReleaseList({ versions }: { versions: Version[] }) {
   const { selectedRelease, setSelectedRelease } = useReleaseStore();

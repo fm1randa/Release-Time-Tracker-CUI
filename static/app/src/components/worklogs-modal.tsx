@@ -1,7 +1,7 @@
 import React from "react";
 import { create } from "zustand";
-import { useIssueStore } from "../lib/issue-store";
-import { formatSeconds } from "../lib/format-seconds";
+import { useIssueStore } from "../store/issue-store";
+import { formatSeconds } from "@lib/format-seconds";
 import Tooltip from "@atlaskit/tooltip";
 import Modal, {
   ModalBody,
