@@ -34,7 +34,7 @@ export function ReleaseIssues() {
 
   const {
     data: issues,
-    isPending,
+    isLoading,
     isError,
     refetch,
   } = useQuery({
@@ -58,7 +58,7 @@ export function ReleaseIssues() {
     );
   }
 
-  if (!selectedRelease || isPending) {
+  if (!selectedRelease || isLoading) {
     return <Spinner size={"medium"} />;
   }
 

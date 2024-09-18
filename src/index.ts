@@ -16,14 +16,10 @@ resolver.define(FunctionKey.GET_PROJECT_DATA, async (req) => {
     },
   } = req;
 
-  console.log(`projectId: ${projectId}`);
-
   const versions = await api
     .asApp()
     .requestJira(route`/rest/api/3/project/${projectId}/versions`)
     .then(async (response) => (await response.json()) as Version[]);
-
-  console.log(versions);
 
   return {
     versions,

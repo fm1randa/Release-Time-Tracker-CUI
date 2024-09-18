@@ -11,7 +11,7 @@ import { ReleaseIssues } from "./components/release-issues";
 const App = () => {
   const {
     data: projectData,
-    isPending: isProjectDataPending,
+    isLoading: isProjectDataPending,
     isError: isProjectDataError,
     refetch,
   } = useQuery({
