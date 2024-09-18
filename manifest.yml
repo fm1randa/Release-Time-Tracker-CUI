@@ -10,8 +10,14 @@ modules:
       handler: index.handler
 resources:
   - key: main
-    path: static/hello-world/build
+    path: static/app/build
 app:
   runtime:
     name: nodejs20.x
   id: ari:cloud:ecosystem::app/9084dcb4-1a13-4544-9c41-98b354a2915c
+permissions:
+  content:
+    styles:
+      - unsafe-inline
+  scopes:
+    - read:jira-work
