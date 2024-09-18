@@ -11,7 +11,6 @@ export default defineConfig({
     distPath: {
       root: "build",
     },
-    manifest: "asset-manifest.json",
   },
   dev: {
     writeToDisk: true,
