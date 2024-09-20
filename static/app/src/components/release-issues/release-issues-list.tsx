@@ -8,6 +8,7 @@ import { Box, Inline, Stack, xcss } from "@atlaskit/primitives";
 import ChevronRightIcon from "@atlaskit/icon/glyph/chevron-right";
 import Badge from "@atlaskit/badge";
 import { formatSeconds } from "@lib/format-seconds";
+import { useConfigurationStore } from "../../store/configuration-store";
 
 export function ReleaseIssuesList({
 	issues,
@@ -16,6 +17,11 @@ export function ReleaseIssuesList({
 }: { issues: Issue[]; refetchIssues: () => void; isFetching: boolean }) {
 	const { setSelectedIssue } = useIssueStore();
 	const { openModal } = useWorklogsModalStore();
+	const { showIssuesNoWorklogs } = useConfigurationStore();
+
+	const worklogFilter = (issue: Issue) => {
+		return showIssuesNoWorklogs || issue.worklogs.length > 0;
+	};
 
 	if (!issues?.length) {
 		return (
@@ -36,7 +42,7 @@ export function ReleaseIssuesList({
 
 	return (
 		<Stack space="space.100">
-			{issues.map((issue) => {
+			{issues.filter(worklogFilter).map((issue) => {
 				const totalTimeSpentOnIssue: number = issue.worklogs.reduce(
 					(acc, worklog) => {
 						return acc + worklog.timeSpentSeconds;
