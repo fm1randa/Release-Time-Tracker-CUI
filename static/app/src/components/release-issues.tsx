@@ -1,6 +1,6 @@
 import Badge from "@atlaskit/badge";
-import Heading from "@atlaskit/heading";
 import Button from "@atlaskit/button/new";
+import Heading from "@atlaskit/heading";
 import ChevronRightIcon from "@atlaskit/icon/glyph/chevron-right";
 import { Box, Inline, Stack, xcss } from "@atlaskit/primitives";
 import Spinner from "@atlaskit/spinner";
