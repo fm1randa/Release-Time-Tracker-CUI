@@ -1,15 +1,15 @@
+import type { Issue } from "@typings/issue";
 import { create } from "zustand";
-import { Issue } from "@typings/issue";
 
 interface IssueState {
-  selectedIssue: Issue | null;
-  setSelectedIssue: (issue: Issue) => void;
+	selectedIssue: Issue | null;
+	setSelectedIssue: (issue: Issue) => void;
 }
 
 export const useIssueStore = create<IssueState>((set) => ({
-  selectedIssue: null,
-  setSelectedIssue: (issue: Issue) =>
-    set({
-      selectedIssue: issue,
-    }),
+	selectedIssue: null,
+	setSelectedIssue: (issue: Issue) =>
+		set({
+			selectedIssue: issue,
+		}),
 }));

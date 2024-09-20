@@ -1,5 +1,5 @@
 export type ProjectFromContext = {
-  key: string;
-  type: string;
-  id: string;
+	key: string;
+	type: string;
+	id: string;
 };
