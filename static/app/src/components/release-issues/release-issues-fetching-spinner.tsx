@@ -7,9 +7,5 @@ export function ReleaseIssuesFetchingSpinner({
 	if (!isFetching) {
 		return null;
 	}
-	return (
-		<div style={{ position: "absolute", top: "10px", right: "10px" }}>
-			<Spinner />
-		</div>
-	);
+	return <Spinner />;
 }

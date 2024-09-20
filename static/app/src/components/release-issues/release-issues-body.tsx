@@ -8,6 +8,8 @@ import { ReleaseIssuesHeading } from "./release-issues-heading";
 import { ReleaseIssuesSubHeading } from "./release-issues-sub-heading";
 import { ReleaseIssuesList } from "./release-issues-list";
 import { WorklogsModal } from "../worklogs-modal";
+import { ReleaseIssuesTopRightActions } from "./release-issues-top-right-actions";
+import { ConfigurationButton } from "../configuration-button";
 
 function getTotalWorkedSeconds(issues: Issue[]): number {
 	return issues.reduce((acc, issue) => {
@@ -63,7 +65,10 @@ export function ReleaseIssuesBody({
 	const { name, startDate, releaseDate } = selectedRelease;
 	return (
 		<Fragment>
-			<ReleaseIssuesFetchingSpinner isFetching={isFetching} />
+			<ReleaseIssuesTopRightActions>
+				<ReleaseIssuesFetchingSpinner isFetching={isFetching} />
+				<ConfigurationButton />
+			</ReleaseIssuesTopRightActions>
 			<ReleaseIssuesHeading
 				totalWorkedSeconds={formattedTotalWorkedSeconds}
 				releaseName={name}
