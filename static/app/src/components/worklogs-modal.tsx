@@ -13,6 +13,7 @@ import { formatSeconds } from "@lib/format-seconds";
 import React from "react";
 import { create } from "zustand";
 import { useIssueStore } from "../store/issue-store";
+import EmptyState from "@atlaskit/empty-state";
 
 function formatTimeAgo(dateString: string) {
 	const date = new Date(dateString);
@@ -124,7 +125,11 @@ export function WorklogsModal() {
 						</ModalTitle>
 					</ModalHeader>
 					<ModalBody>
-						<DynamicTable head={head} rows={rows} />
+						{rows?.length ? (
+							<DynamicTable head={head} rows={rows} />
+						) : (
+							<EmptyState header={"No worklogs found for this issue"} />
+						)}
 					</ModalBody>
 					<ModalFooter>
 						<Button appearance="subtle" onClick={closeModal}>
