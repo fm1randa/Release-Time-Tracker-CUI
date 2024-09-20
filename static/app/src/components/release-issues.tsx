@@ -53,6 +53,9 @@ function ReleaseIssuesContainer({ children }: PropsWithChildren) {
 				borderStyle: "solid",
 				borderRadius: "border.radius",
 				position: "relative",
+				minHeight: "110px",
+				display: "flex",
+				flexDirection: "column",
 			})}
 			padding="space.100"
 		>
@@ -103,7 +106,8 @@ function ReleaseIssuesSubHeading({
 function ReleaseIssuesList({
 	issues,
 	refetchIssues: refetch,
-}: { issues: Issue[]; refetchIssues: () => void }) {
+	isFetching,
+}: { issues: Issue[]; refetchIssues: () => void; isFetching: boolean }) {
 	const { setSelectedIssue } = useIssueStore();
 	const { openModal } = useWorklogsModalStore();
 
@@ -112,7 +116,11 @@ function ReleaseIssuesList({
 			<EmptyState
 				header={"No issues found for this release"}
 				primaryAction={
-					<Button appearance="primary" onClick={() => refetch()}>
+					<Button
+						appearance="primary"
+						onClick={() => refetch()}
+						isDisabled={isFetching}
+					>
 						Refresh
 					</Button>
 				}
@@ -193,7 +201,19 @@ function ReleaseIssuesBody({
 	};
 
 	if (!selectedRelease || areIssuesLoading(isLoading, issues)) {
-		return <Spinner size={"medium"} />;
+		return (
+			<div
+				style={{
+					display: "flex",
+					justifyContent: "center",
+					alignItems: "center",
+					width: "100%",
+					flex: "1",
+				}}
+			>
+				<Spinner size={"medium"} />
+			</div>
+		);
 	}
 
 	const formattedTotalWorkedSeconds = formatSeconds(
@@ -212,7 +232,11 @@ function ReleaseIssuesBody({
 				releaseDate={releaseDate}
 				startDate={startDate}
 			/>
-			<ReleaseIssuesList issues={issues} refetchIssues={refetch} />
+			<ReleaseIssuesList
+				issues={issues}
+				refetchIssues={refetch}
+				isFetching={isFetching}
+			/>
 			<WorklogsModal />
 		</Fragment>
 	);
